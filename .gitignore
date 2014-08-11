@@ -1,0 +1,11 @@
+bin
+obj
+java
+tags
+*.exe
+*.dll
+*.pdb
+*.suo
+*.pfx
+*.sql
+*;*

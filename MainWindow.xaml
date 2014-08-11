@@ -1,0 +1,70 @@
+﻿<Window x:Class="VNRec.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:VNRec"
+        xmlns:p="clr-namespace:VNRec.Properties"
+        Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+        Title="VN Recommendations" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize"
+        Loaded="WindowLoaded">
+    <Window.Resources>
+        <local:ScoreConverter x:Key="scoreConverter"/>
+        <DataTemplate x:Key="RecommendationTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Margin="0,0,5,0">
+                    <Hyperlink NavigateUri="{Binding Uri}" RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock Text="{Binding Title}"/>
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Text="{Binding Score, Converter={StaticResource scoreConverter}}" Grid.Column="1" HorizontalAlignment="Right"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Label Content="User ID" Target="{Binding ElementName=UserId}" Padding="5,0,5,0" VerticalAlignment="Center"/>
+            <TextBox Name="UserId" Width="70" Height="22" Text="{Binding  Source={x:Static p:Settings.Default}, Path=LastUserId, Mode=TwoWay}"/>
+            <Button Content="Update" Name="UpdateButton" Width="75" Height="25" Margin="10,0,10,0" Click="Update_Click"/>
+        </StackPanel>
+        <Separator Height="1" Margin="0"/>
+        <Grid Margin="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,0,5,10">
+                <Label Content="Similar user" Target="{Binding ElementName=SimilarUserList}"/>
+                <ItemsControl Name="SimilarUserList" Height="Auto" ItemTemplate="{StaticResource RecommendationTemplate}"/>
+            </StackPanel>
+            <Rectangle Grid.Column="1" VerticalAlignment="Stretch" Width="1" Margin="5,0,5,0" Fill="Gray" SnapsToDevicePixels="True" UseLayoutRounding="True"/>
+            <StackPanel Orientation="Vertical" Grid.Column="2" Margin="5,0,5,10">
+                <Label Content="Relative popularity" Target="{Binding ElementName=RelativePopularityList}"/>
+                <ItemsControl Name="RelativePopularityList" Height="Auto" ItemTemplate="{StaticResource RecommendationTemplate}"/>
+            </StackPanel>
+            <Rectangle Grid.Column="3" VerticalAlignment="Stretch" Width="1" Margin="5,0,5,0" Fill="Gray" SnapsToDevicePixels="True" UseLayoutRounding="True"/>
+            <StackPanel Orientation="Vertical" Grid.Column="4" Margin="5,0,0,10">
+                <Label Content="Linear regression" Target="{Binding ElementName=LinearRegressionList}"/>
+                <ItemsControl Name="LinearRegressionList" Height="Auto" ItemTemplate="{StaticResource RecommendationTemplate}"/>
+            </StackPanel>
+        </Grid>
+        <Separator Height="1" Margin="0"/>
+        <TextBlock Name="MostSimilarUser" DataContext="{Binding}" Margin="10" Visibility="Hidden">
+            Most similar user <Hyperlink NavigateUri="{Binding Uri}" RequestNavigate="Hyperlink_RequestNavigate"><TextBlock Text="{Binding Name}"/></Hyperlink>
+        </TextBlock>
+        <Separator Height="1" Margin="0"/>
+        <StatusBar>
+            <StatusBarItem>
+                <TextBlock x:Name="StatusText"/>
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Name="StatusProgress" Width="100" Height="16" Minimum="0" Maximum="100" Visibility="Hidden"/>
+            </StatusBarItem>
+        </StatusBar>
+    </StackPanel>
+</Window>

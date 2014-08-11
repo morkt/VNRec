@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNRec", "VNRec.csproj", "{2F250C8E-1768-4B21-B243-6C286BC42171}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNDB", "VNDB\VNDB.csproj", "{C4ADC3C6-089E-4E1F-ABCC-D72036C81141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNDBTest", "VNDBTest\VNDBTest.csproj", "{B3E8B3EC-66FB-4E4F-ADA6-DB8926DC6666}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F250C8E-1768-4B21-B243-6C286BC42171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F250C8E-1768-4B21-B243-6C286BC42171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F250C8E-1768-4B21-B243-6C286BC42171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F250C8E-1768-4B21-B243-6C286BC42171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4ADC3C6-089E-4E1F-ABCC-D72036C81141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4ADC3C6-089E-4E1F-ABCC-D72036C81141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4ADC3C6-089E-4E1F-ABCC-D72036C81141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4ADC3C6-089E-4E1F-ABCC-D72036C81141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E8B3EC-66FB-4E4F-ADA6-DB8926DC6666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E8B3EC-66FB-4E4F-ADA6-DB8926DC6666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E8B3EC-66FB-4E4F-ADA6-DB8926DC6666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E8B3EC-66FB-4E4F-ADA6-DB8926DC6666}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
